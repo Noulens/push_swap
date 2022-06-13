@@ -2,3 +2,4 @@
 *.gch
 *.o
 main.c
+*.txt
