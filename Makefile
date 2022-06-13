@@ -1,21 +1,26 @@
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror -g
+CFLAGS	=	-Wall -Wextra -Werror
 
-SRCS	=	#METTRE SRC
+SRCS	=	./srcs/
+			./srcs/
 
 OBJS	=	${SRCS:.c=.o}
 
-NAME	=	#METTRE NAME		
+NAME	=	push_swap		
 
-HEADERS	=	#METTRE HEADER
+HEADERS	=	-I ./includes
 
-${NAME}: ${HEADERS} ${OBJS}
+${NAME}: ${OBJS}
 	${MAKE} all -C ./libft
-	cp libft/libft.a .
+	${CC} -o $@ $^
+#	cp libft/libft.a .
 #	METTRE CMD DE COMPILE AVEC LIBFT
 
 all : ${NAME}
+
+%.o: %.c
+	${CC} ${CFLAGS} ${HEADERS} -o $@ -c $^ -g -L libft/ -lft
 
 clean :
 	${MAKE} clean -C ./libft

@@ -1,5 +1,4 @@
 *.out
 *.gch
 *.o
-main.c
 *.txt
