@@ -2,7 +2,7 @@ CC		=	gcc
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-SRCS	=	./srcs/
+SRCS	=	./srcs/main.c\
 			./srcs/
 
 OBJS	=	${SRCS:.c=.o}
