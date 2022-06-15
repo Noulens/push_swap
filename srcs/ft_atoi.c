@@ -6,11 +6,11 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 17:10:21 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/15 19:24:44 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/15 19:44:01 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 int	ft_atoi(const char *nptr)
 {

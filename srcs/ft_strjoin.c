@@ -6,11 +6,11 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 18:08:38 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/15 17:24:28 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:27:38 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static int	ft_strl(char *str)
 {

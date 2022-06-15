@@ -13,9 +13,8 @@ HEADERS	=	-I ./includes
 
 ${NAME}: ${OBJS}
 	${MAKE} all -C ./libft
+	cp libft/libft.a .
 	${CC} -o $@ $^
-#	cp libft/libft.a .
-#	METTRE CMD DE COMPILE AVEC LIBFT
 
 all : ${NAME}
 
@@ -24,7 +23,7 @@ all : ${NAME}
 
 clean :
 	${MAKE} clean -C ./libft
-	rm -rf ${OBJS} *.o
+	rm -rf ${OBJS} *.o *.a
 
 fclean : clean
 	${MAKE} fclean -C ./libft

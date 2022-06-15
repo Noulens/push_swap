@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 14:13:49 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/15 20:03:05 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/05/10 19:35:24 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/06/15 20:11:54 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_int *lst, t_int *new)
+t_int	*ft_lstnew(char *content)
 {
-	t_int	*pl;
+	t_int	*first;
 
-	if (lst)
-	{
-		pl = ft_lstlast(lst);
-		pl->next = new;
-	}
-	else
-		lst = new;
+	first = (t_int *)malloc(sizeof(t_int));
+	if (!first)
+		return (NULL);
+	first->digit = ft_atoi(content);
+	first->next = NULL;
+	return (first);
 }
