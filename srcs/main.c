@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/16 14:23:36 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/16 17:13:53 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,23 @@ int	main(int argc, char **argv)
 		if (ft_v_args(argv))
 		{
 			topa = ft_build_stack(argc - 1, argv + 1);
-			if (ft_find_duplicate(topa) == 0)
+			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
-			topb = NULL;
+			//topb = NULL;
+			topb = ft_lstnew("666");
+			ft_pusha(&topa, &topb);
 			display(topa);
+			printf("-\n");
 			display(topb);
+			printf("----\n");
+			//ft_swapa(&topa);
+			//ft_swapb(&topb);
+			ft_swapss(&topa, &topb);
+			display(topa);
+			printf("-\n");
+			display(topb);
+			ft_lstclear(topa);
+			ft_lstclear(topb);
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));
