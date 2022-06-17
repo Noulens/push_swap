@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:23:06 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 17:25:35 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/17 21:37:13 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_sorted(t_int *a)
 {
 	long	x;
 
-	x = INT_MIN - 1;
+	x = INT_MIN;
 	while (a)
 	{
 		if (a->digit < x)

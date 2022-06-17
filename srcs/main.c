@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 17:28:35 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/17 21:38:58 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	main(int argc, char **argv)
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
 			topb = NULL;
-			ft_sort(&topa, &topb);
+			ft_quick_sort(topa, ft_lstlast(topa));
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));

@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:23:20 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 18:55:23 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/17 21:37:15 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_int	*ft_lstnew(char *content);
 void	ft_lstclear(t_int *lst);
 int		ft_isdigit(int c);
 long	ft_atol(const char *nptr);
-int		ft_lstsize(t_int *lst)
+int		ft_lstsize(t_int *lst);
 /* proto utils */
 t_int	*ft_build_stack(int nbdigit, char **nb_arg);
 void	ft_pusha(t_int **topa, t_int **topb);
@@ -50,6 +50,7 @@ void	ft_rra(t_int **a);
 void	ft_rrr(t_int **a, t_int **b);
 int		ft_sorted(t_int *a);
 void	ft_sort(t_int **a, t_int **b);
+void	ft_quick_sort(t_int *fst, t_int *lst);
 
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
