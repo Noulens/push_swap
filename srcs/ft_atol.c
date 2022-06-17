@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/06 17:10:21 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/15 19:44:01 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/06/17 16:59:32 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/06/17 17:06:20 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	int	sign;
-	int	result;
+	int		sign;
+	long	result;
 
 	sign = 1;
 	while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
@@ -34,15 +34,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (sign * result);
 }
-
-/*#include <stdlib.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	char str[] = {"\n   \v   \f  \r \t -2147483647frfrfrfrfr564"};
-	//char str[] = {""};
-	printf("%d\n", ft_atoi(str));
-	printf("%d\n", atoi(str));
-	return (0);
-}*/

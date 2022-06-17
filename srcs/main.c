@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 16:26:03 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/17 17:28:35 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ static int	ft_find_duplicate(t_int *top)
 		count = 0;
 		while (temp1 != NULL)
 		{
-			if (temp->digit == temp1->digit)
+			if (temp->digit == temp1->digit
+				|| temp->digit > INT_MAX || temp->digit < INT_MIN)
 				count++;
 			temp1 = temp1->next;
 		}
@@ -81,7 +82,7 @@ void	display(t_int *top)
 		return ;
 	while (p != NULL)
 	{
-		printf("%d\n", p->digit);
+		printf("%ld\n", p->digit);
 		p = p->next;
 	}
 }
@@ -101,6 +102,7 @@ int	main(int argc, char **argv)
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
 			topb = NULL;
+			ft_sort(&topa, &topb);
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));
@@ -125,5 +127,5 @@ int	main(int argc, char **argv)
 			display(topb);
 			ft_lstclear(topa);
 			ft_lstclear(topb);
-			*/
+*/
 		

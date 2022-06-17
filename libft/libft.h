@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:05:08 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/15 21:10:21 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/17 18:54:29 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ft_putnbr_fd(int n, int fd);
 /* Bonus */
 t_int	*ft_lstnew(char *content);
 void	ft_lstadd_front(t_int *lst, t_int *new);
-int		ft_lstsize(t_list *lst);
+int		ft_lstsize(t_int *lst);
 t_int	*ft_lstlast(t_int *lst);
 void	ft_lstadd_back(t_int *lst, t_int *new);
 void	ft_lstclear(t_int *lst);
@@ -94,5 +94,7 @@ size_t	ft_strlenb(const char *s);
 char	*ft_strchrb(const char *s, int c);
 void	*ft_callocb(size_t nmemb, size_t size);
 void	ft_cpy(char *suf, char *p);
+/* Other */
+long	ft_atol(const char *nptr);
 
 #endif

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 19:35:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 17:02:19 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/06/17 16:59:32 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/06/17 17:00:00 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_int	*ft_lstnew(char *content)
+long	ft_atol(const char *nptr)
 {
-	t_int	*first;
+	int		sign;
+	long	result;
 
-	first = (t_int *)malloc(sizeof(t_int));
-	if (!first)
-		return (NULL);
-	first->digit = ft_atol(content);
-	first->next = NULL;
-	return (first);
+	sign = 1;
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
+		++nptr;
+	if (*nptr == '+' || *nptr == '-')
+	{
+		if (*nptr == '-')
+			sign *= -1;
+		++nptr;
+	}
+	result = 0;
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		result = result * 10 + *nptr - 48;
+		++nptr;
+	}
+	return (sign * result);
 }
