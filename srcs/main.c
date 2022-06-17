@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/16 17:13:53 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/17 16:26:03 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,25 @@ int	ft_v_args(char **v)
 {
 	int	i;
 	int	j;
-	int	flag;
+	int	sign;
 
 	i = 0;
 	while (v[++i])
 	{
 		j = 0;
-		flag = 0;
+		sign = 0;
 		while (v[i][j])
 		{
-			if (ft_isdigit(v[i][j]) || (v[i][j] == '-' && flag != 1))
-				flag = 1;
-			else if (v[i][j] == ' ')
-				flag = 0;
-			else
+			if (v[i][j] == '-' && sign == 0)
+			{
+				sign = 1;
+				if (!ft_isdigit(v[i][j + 1]))
+					return (0);
+			}
+			else if (!ft_isdigit(v[i][j]) && v[i][j] != ' ')
 				return (0);
+			if (v[i][j] == ' ')
+				sign = 0;
 			++j;
 		}
 	}
@@ -96,8 +100,16 @@ int	main(int argc, char **argv)
 			topa = ft_build_stack(argc - 1, argv + 1);
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
-			//topb = NULL;
-			topb = ft_lstnew("666");
+			topb = NULL;
+		}
+		else
+			write(1, "Error\n", 6 * sizeof(char));
+	}
+	return (0);
+}
+
+/*
+			topb = ft_lstnew("1989");
 			ft_pusha(&topa, &topb);
 			display(topa);
 			printf("-\n");
@@ -105,15 +117,13 @@ int	main(int argc, char **argv)
 			printf("----\n");
 			//ft_swapa(&topa);
 			//ft_swapb(&topb);
-			ft_swapss(&topa, &topb);
+			//ft_swapss(&topa, &topb);
+			//ft_rr(&topa, &topb);
+			ft_rrr(&topa, &topb);
 			display(topa);
 			printf("-\n");
 			display(topb);
 			ft_lstclear(topa);
 			ft_lstclear(topb);
-		}
-		else
-			write(1, "Error\n", 6 * sizeof(char));
-	}
-	return (0);
-}
+			*/
+		

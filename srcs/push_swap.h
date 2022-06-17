@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:23:20 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/16 17:11:42 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/17 15:49:29 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	ft_pushb(t_int **topb, t_int **topa);
 void	ft_swapa(t_int **a);
 void	ft_swapb(t_int **b);
 void	ft_swapss(t_int **a, t_int **b);
+void	ft_ra(t_int **a);
+void	ft_rb(t_int **b);
+void	ft_rr(t_int **a, t_int **b);
+void	ft_rra(t_int **a);
+void	ft_rrr(t_int **a, t_int **b);
 
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0
