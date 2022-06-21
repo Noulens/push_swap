@@ -3,3 +3,7 @@
 *.o
 *.txt
 checker_linux
+build/
+push_swap
+visualizer
+imgui.ini

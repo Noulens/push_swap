@@ -6,11 +6,11 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 14:43:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 16:22:35 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:32:04 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static t_int	*ft_blast(t_int *lst)
 {
@@ -38,6 +38,7 @@ void	ft_rra(t_int **a)
 	*a = blast->next;
 	(*a)->next = tmpa;
 	blast->next = NULL;
+	write(1, "rra\n", 4);	
 }
 
 void	ft_rrb(t_int **b)
@@ -55,6 +56,7 @@ void	ft_rrb(t_int **b)
 	*b = blast->next;
 	(*b)->next = tmpb;
 	blast->next = NULL;
+	write(1, "rrb\n", 4);
 }
 
 void	ft_rrr(t_int **a, t_int **b)

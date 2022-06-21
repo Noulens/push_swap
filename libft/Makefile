@@ -66,11 +66,11 @@ ${NAME}	:	${HEADERS} ${OBJS}
 all 	:	${NAME}
 
 clean	:
-	rm -f ${OBJS} ${OBJS_BONUS}
+	rm -f ${OBJS}
 
 fclean	:	clean
 	rm -f ${NAME}
 
 re		:	fclean all
 
-.PHONY	:	re fclean all clean bonus
+.PHONY	:	re fclean all clean

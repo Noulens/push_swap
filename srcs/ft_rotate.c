@@ -6,11 +6,11 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:19:15 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 16:16:10 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:36:09 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_ra(t_int **a)
 {

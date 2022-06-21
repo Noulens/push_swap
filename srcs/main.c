@@ -6,11 +6,11 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 21:38:58 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:36:27 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_v_args(char **v)
 {
@@ -102,7 +102,12 @@ int	main(int argc, char **argv)
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
 			topb = NULL;
-			ft_quick_sort(topa, ft_lstlast(topa));
+			//display(topa);
+			ft_sel(&topa, &topb);
+			//display(topa);
+			printf("\n%d\n", ft_sorted(topa));
+			//ft_lstclear(topa);
+			//ft_lstclear(topb);		
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));

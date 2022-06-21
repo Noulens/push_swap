@@ -6,11 +6,11 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:57:32 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/16 12:00:43 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:35:31 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	ft_free_splt(char **tofree)
 {

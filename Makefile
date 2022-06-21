@@ -1,32 +1,41 @@
-CC		=	gcc
+NAME	=	push_swap
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFILES	=	./srcs/ft_build_stack.c\
+			./srcs/ft_push.c\
+			./srcs/ft_reverse_rotate.c\
+			./srcs/ft_rotate.c\
+			./srcs/ft_sort.c\
+			./srcs/ft_swap.c\
+			./srcs/ft_utils_a.c\
+			./srcs/main.c
 
-SRCS	=	./srcs/main.c\
-			./srcs/
+OBJECTS = $(CFILES:.c=.o)
 
-OBJS	=	${SRCS:.c=.o}
+LIB_PATH = libft/
 
-NAME	=	push_swap		
+CC = gcc
 
-HEADERS	=	-I ./includes
+CFLAGS = -Wall -Wextra -Werror -g
 
-${NAME}: ${OBJS}
-	${MAKE} all -C ./libft
-	cp libft/libft.a .
-	${CC} -o $@ $^
+all: subsystem $(NAME)
 
-all : ${NAME}
+subsystem:
+	make -C $(LIB_PATH) all
 
-%.o: %.c
-	${CC} ${CFLAGS} ${HEADERS} -o $@ -c $^ -g -L libft/ -lft
+$(NAME): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIB_PATH)libft.a -o $(NAME)
 
-clean :
-	${MAKE} clean -C ./libft
-	rm -rf ${OBJS} *.o *.a
+clean:
+	make -C $(LIB_PATH) clean
+	rm -f $(OBJECTS)
 
-fclean : clean
-	${MAKE} fclean -C ./libft
-	rm -rf ${NAME}
+fclean: clean
+	make -C $(LIB_PATH) fclean
+	rm -f $(NAME)
 
-re : fclean all
+re: fclean all
+
+call: all clean
+	make -C $(LIB_PATH) fclean
+
+.PHONY	: all clean fclean re call

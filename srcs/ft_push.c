@@ -6,11 +6,11 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:56:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 13:43:55 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:35:51 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_pusha(t_int **a, t_int **b)
 {
@@ -32,7 +32,7 @@ void	ft_pushb(t_int **b, t_int **a)
 {
 	t_int	*tmp2;
 
-	if (!a)
+	if (!a || !*a)
 		return ;
 	else
 	{
