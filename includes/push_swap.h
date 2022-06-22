@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:23:20 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/21 15:26:59 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/22 22:22:40 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,16 @@ void	ft_rra(t_int **a);
 void	ft_rrr(t_int **a, t_int **b);
 int		ft_sorted(t_int *a);
 void	display(t_int *top);
+int		ft_max(t_int *top);
+int		ft_min(t_int *top);
+int		ft_median(t_int *top);
 
 int		ft_define_rotate(t_int *top, int digit);
 void	ft_act_rotate(t_int **top, int digit);
+void	ft_define_sort(t_int **topa, t_int **topb);
 void	ft_sel(t_int **topa, t_int **topb);
+void	ft_sort3(t_int **topa, t_int **topb, int size);
+void	ft_sort5(t_int **topa, t_int **topb, int size);
 
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0

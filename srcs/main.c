@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/21 18:36:27 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/23 00:31:23 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,15 +103,17 @@ int	main(int argc, char **argv)
 				ft_error_dup(topa);
 			topb = NULL;
 			//display(topa);
-			ft_sel(&topa, &topb);
+			//ft_sel(&topa, &topb);
 			//display(topa);
-			printf("\n%d\n", ft_sorted(topa));
-			//ft_lstclear(topa);
-			//ft_lstclear(topb);		
+			ft_define_sort(&topa, &topb);
+			//printf("\n%d\n\n", ft_sorted(topa));
+			//display(topa);
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));
 	}
+	ft_lstclear(topa);
+	ft_lstclear(topb);
 	return (0);
 }
 

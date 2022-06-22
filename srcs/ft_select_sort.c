@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_select_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/21 17:54:55 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/22 22:22:18 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,20 @@ void	ft_act_rotate(t_int **top, int digit)
 			ft_rra(top);
 	else
 		return ;
+}
+
+void	ft_define_sort(t_int **topa, t_int **topb)
+{
+	int	size;
+
+	size = ft_lstsize(*topa);
+	if (size <= 3)
+		ft_sort3(topa, topb, size);
+	else if (size <= 5)
+		ft_sort5(topa, topb, size);
+	else
+		ft_sel(topa, topb);
+	return ;
 }
 
 void	ft_sel(t_int **topa, t_int **topb)
