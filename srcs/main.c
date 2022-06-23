@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/23 00:31:23 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/23 18:14:38 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,25 +73,13 @@ static int	ft_find_duplicate(t_int *top)
 	return (1);
 }
 
-void	display(t_int *top)
-{
-	t_int	*p;
-
-	p = top;
-	if (!top)
-		return ;
-	while (p != NULL)
-	{
-		printf("%ld\n", p->digit);
-		p = p->next;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_int	*topa;
 	t_int	*topb;
 
+	topa = NULL;
+	topb = NULL;
 	if (argc <= 1)
 		exit(EXIT_SUCCESS);
 	if (argc >= 2)
@@ -101,13 +89,8 @@ int	main(int argc, char **argv)
 			topa = ft_build_stack(argc - 1, argv + 1);
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
-			topb = NULL;
-			//display(topa);
-			//ft_sel(&topa, &topb);
-			//display(topa);
 			ft_define_sort(&topa, &topb);
-			//printf("\n%d\n\n", ft_sorted(topa));
-			//display(topa);
+			printf("\n%d\n\n", ft_sorted(topa));
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));
@@ -134,5 +117,6 @@ int	main(int argc, char **argv)
 			display(topb);
 			ft_lstclear(topa);
 			ft_lstclear(topb);
+			//printf("\n%d\n\n", ft_sorted(topa));
 */
 		

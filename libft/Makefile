@@ -37,6 +37,7 @@ SRCS		=	ft_isalpha.c\
 				ft_putendl_fd.c\
 				ft_putnbr_fd.c\
 				ft_lstnew_bonus.c\
+				ft_lstnewint.c\
 				ft_lstadd_front_bonus.c\
 				ft_lstsize_bonus.c\
 				ft_lstlast_bonus.c\
@@ -50,6 +51,7 @@ SRCS		=	ft_isalpha.c\
 				ft_uitoa.c\
 				ft_printf.c\
 				get_next_line_bonus.c\
+				ft_lstsizem.c\
 				get_next_line_utils_bonus.c
 
 

@@ -24,7 +24,7 @@ _IPURPLE=$'\033[45m
 _ICYAN=$'\033[46m
 _IWHITE=$'\033[47m
 
-DONE	=  @echo "${_BOLD}${_GREEN}Compilation done !!!${_END}"
+DONE	=  	@echo "${_BOLD}${_GREEN}Compilation done !!!${_END}"
 
 NAME	=	push_swap
 
@@ -36,22 +36,23 @@ CFILES	=	./srcs/ft_build_stack.c\
 			./srcs/ft_swap.c\
 			./srcs/ft_utils_a.c\
 			./srcs/ft_sort3.c\
-			./srcs/ft_sort5.c\
+			./srcs/ft_sort10.c\
+			./srcs/ft_qs.c\
 			./srcs/main.c
 
-OBJECTS = $(CFILES:.c=.o)
+OBJECTS = 	$(CFILES:.c=.o)
 
-LIB_PATH = libft/
+LIB_PATH = 	libft/
 
-CC = gcc
+CC = 		gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS =	-Wall -Wextra -Werror -g
 
 all: subsystem $(NAME) # Make all
 
 subsystem: # Make the libft first
 	make -C $(LIB_PATH) all
-	@echo "${_BOLD}${_BLUE}Libft available, nothing else to be done${_END}"
+	@echo "${_BOLD}${_BLUE}Libft available, nothing else to be done here${_END}"
 
 $(NAME): $(OBJECTS)
 	@echo "${_BOLD}${_BLUE}All objects generated${_END}"

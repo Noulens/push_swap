@@ -6,11 +6,25 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:23:06 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/22 23:01:32 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/23 20:13:35 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_display(t_int *top)
+{
+	t_int	*p;
+
+	p = top;
+	if (!top)
+		return ;
+	while (p != NULL)
+	{
+		printf("%ld\n", p->digit);
+		p = p->next;
+	}
+}
 
 int	ft_sorted(t_int *a)
 {
@@ -59,7 +73,7 @@ int	ft_min(t_int *top)
 	return (min);
 }
 
-int	ft_median(t_int *top)
+int	ft_median(t_int *top, int nb)
 {
 	int		nb;
 	int		median;
@@ -67,7 +81,7 @@ int	ft_median(t_int *top)
 	int		i;
 
 	tmp = top;
-	nb = ft_lstsize(top);
+	nb = ft_lstsizem(top, nb);
 	if (nb % 2 == 0)
 		median = nb / 2 + 1;
 	else

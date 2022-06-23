@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/22 22:22:18 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:50:24 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,20 @@ void	ft_act_rotate(t_int **top, int digit)
 
 void	ft_define_sort(t_int **topa, t_int **topb)
 {
-	int	size;
+	int		size;
+	t_int	*pint;
 
+	if (ft_sorted(*topa))
+		return ;
 	size = ft_lstsize(*topa);
 	if (size <= 3)
-		ft_sort3(topa, topb, size);
-	else if (size <= 5)
-		ft_sort5(topa, topb, size);
-	else
-		ft_sel(topa, topb);
+		ft_sort3(topa, size);
+	else if (size <= 10)
+		ft_sort10(topa, topb, size);
+	else if (size <= 100)
+	{
+		ft_qs(topa, topb, size);
+	}
 	return ;
 }
 
@@ -72,7 +77,7 @@ void	ft_sel(t_int **topa, t_int **topb)
 	t_int	*r;
 
 	tmp = *topa;
-	while (tmp)
+	while (ft_lstsize(*topa) > 3 && !ft_sorted(*topa))
 	{
 		min = tmp;
 		r = tmp->next;
@@ -86,6 +91,4 @@ void	ft_sel(t_int **topa, t_int **topb)
 		ft_pushb(topb, topa);
 		tmp = *topa;
 	}
-	while (*topb)
-		ft_pusha(topa, topb);
 }

@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:05:08 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/17 18:54:29 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:55:52 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ void	*ft_callocb(size_t nmemb, size_t size);
 void	ft_cpy(char *suf, char *p);
 /* Other */
 long	ft_atol(const char *nptr);
+t_int	*ft_lstnewint(int content);
+int		ft_lstsizem(t_int *lst, int n);
 
 #endif
