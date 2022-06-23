@@ -7,3 +7,4 @@ build/
 push_swap
 visualizer
 imgui.ini
+*.a
