@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 14:43:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/23 13:47:50 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:39:31 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,10 @@ void	ft_rrr(t_int **a, t_int **b)
 		blast->next = NULL;
 	}
 	write(1, "rrr\n", 4);
+}
+
+void	ft_rev_rotate_ntimes(t_int **top, int n)
+{
+	while (n-- > 0)
+		ft_rra(top);
 }

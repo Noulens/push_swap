@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:23:06 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/23 20:13:35 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/24 14:33:03 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,25 +73,13 @@ int	ft_min(t_int *top)
 	return (min);
 }
 
-int	ft_median(t_int *top, int nb)
+int	ft_median(int *tab, int nb)
 {
-	int		nb;
 	int		median;
-	t_int	*tmp;
-	int		i;
 
-	tmp = top;
-	nb = ft_lstsizem(top, nb);
 	if (nb % 2 == 0)
-		median = nb / 2 + 1;
+		median = nb / 2;
 	else
 		median = (nb + 1) / 2;
-	i = 1;
-	while (i < median)
-	{
-		i++;
-		tmp = tmp->next;
-	}
-	median = tmp->digit;
-	return (median);
+	return (tab[median]);
 }

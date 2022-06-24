@@ -37,6 +37,7 @@ CFILES	=	./srcs/ft_build_stack.c\
 			./srcs/ft_utils_a.c\
 			./srcs/ft_sort3.c\
 			./srcs/ft_sort10.c\
+			./srcs/ft_sort100.c\
 			./srcs/ft_qs.c\
 			./srcs/main.c
 
@@ -52,10 +53,10 @@ all: subsystem $(NAME) # Make all
 
 subsystem: # Make the libft first
 	make -C $(LIB_PATH) all
-	@echo "${_BOLD}${_BLUE}Libft available, nothing else to be done here${_END}"
+	@echo "${_BOLD}${_BLUE}Libft archive generated, nothing else to be done here${_END}"
 
 $(NAME): $(OBJECTS)
-	@echo "${_BOLD}${_BLUE}All objects generated${_END}"
+	@echo "${_BOLD}${_BLUE}All object files generated${_END}"
 	$(CC) $(CFLAGS) $(OBJECTS) $(LIB_PATH)libft.a -o $(NAME)
 	$(DONE)
 
@@ -73,7 +74,7 @@ re: fclean all
 
 call: all clean # Clean generated object files then clean libft target and object files
 	make -C $(LIB_PATH) fclean
-	@echo "${_BOLD}${_GREEN}Compilation done, removed object files${_END}"
+	@echo "${_BOLD}${_GREEN}Compilation done, object files and archive removed${_END}"
 
 .PHONY	: all clean fclean re call help
 

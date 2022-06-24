@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:13:27 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/23 19:57:51 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/24 10:04:34 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_lstsizem(t_int *lst, int n)
 {
 	if (lst && n)
-		return (ft_lstsize(lst->next) + 1, n - 1);
+		return (ft_lstsizem(lst->next, n - 1) + 1);
 	else
 		return (0);
 }

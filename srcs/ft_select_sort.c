@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/23 19:50:24 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:15:30 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_define_rotate(t_int *top, int digit)
 		return (2);
 }
 
-void	ft_act_rotate(t_int **top, int digit)
+void	ft_act_rotatea(t_int **top, int digit)
 {
 	int	r;
 
@@ -51,10 +51,24 @@ void	ft_act_rotate(t_int **top, int digit)
 		return ;
 }
 
+void	ft_act_rotateb(t_int **top, int digit)
+{
+	int	r;
+
+	r = ft_define_rotate(*top, digit);
+	if (r == 1)
+		while ((*top)->digit != digit)
+			ft_rb(top);
+	else if (r == 2)
+		while ((*top)->digit != digit)
+			ft_rrb(top);
+	else
+		return ;
+}
+
 void	ft_define_sort(t_int **topa, t_int **topb)
 {
 	int		size;
-	t_int	*pint;
 
 	if (ft_sorted(*topa))
 		return ;
@@ -63,10 +77,8 @@ void	ft_define_sort(t_int **topa, t_int **topb)
 		ft_sort3(topa, size);
 	else if (size <= 10)
 		ft_sort10(topa, topb, size);
-	else if (size <= 100)
-	{
+	else
 		ft_qs(topa, topb, size);
-	}
 	return ;
 }
 
@@ -87,7 +99,7 @@ void	ft_sel(t_int **topa, t_int **topb)
 				min = r;
 			r = r->next;
 		}
-		ft_act_rotate(topa, min->digit);
+		ft_act_rotatea(topa, min->digit);
 		ft_pushb(topb, topa);
 		tmp = *topa;
 	}

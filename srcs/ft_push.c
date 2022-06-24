@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:56:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/21 17:35:51 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:42:28 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,16 @@ void	ft_pushb(t_int **b, t_int **a)
 		*a = tmp2;
 	}
 	write(1, "pb\n", 3);
+}
+
+void	ft_pusha_ntimes(t_int **topa, t_int **topb, int n)
+{
+	while (n-- > 0)
+		ft_pusha(topa, topb);
+}
+
+void	ft_pushb_ntimes(t_int **topa, t_int **topb, int n)
+{
+	while (n-- > 0)
+		ft_pushb(topb, topa);
 }

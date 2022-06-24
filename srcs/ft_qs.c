@@ -6,84 +6,81 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/23 20:06:27 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:12:36 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static t_int	*ft_partition(t_int *first, t_int *last)
+static void	ft_swap(int *a, int *b)
 {
-	t_int	*pivot;
-	t_int	*front;
-	int		temp;
+	int	t;
 
-	pivot = first;
-	front = first;
-	temp = 0;
-	while (front != NULL && front != last)
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+
+static int	ft_partition(int *array, int low, int high)
+{
+	int	pivot;
+	int	i;
+	int	j;
+
+	pivot = array[high];
+	i = (low - 1);
+	j = low;
+	while (j < high)
 	{
-		if (front->digit < last->digit)
+		if (array[j] <= pivot)
 		{
-			pivot = first;
-			temp = first->digit;
-			first->digit = front->digit;
-			front->digit = temp;
-			first = first->next;
+			i++;
+			ft_swap(&array[i], &array[j]);
 		}
-		front = front->next;
+		j++;
 	}
-	temp = first->digit;
-	first->digit = last->digit;
-	last->digit = temp;
-	return (pivot);
+	ft_swap(&array[i + 1], &array[high]);
+	return (i + 1);
 }
 
-static void	ft_quicksort(t_int *first, t_int *last)
+static void	ft_quicksort(int array[], int low, int high)
 {
-	t_int	*pivot;
+	int	pi;
 
-	pivot = ft_partition(first, last);
-	if (first == last)
-		return ;
-	if (pivot != NULL && pivot->next != NULL)
-		ft_quicksort(pivot->next, last);
-	if (pivot != NULL && first != pivot)
-		ft_quicksort(first, pivot);
+	if (low < high)
+	{
+		pi = ft_partition(array, low, high);
+		ft_quicksort(array, low, pi - 1);
+		ft_quicksort(array, pi + 1, high);
+	}
 }
 
-static t_int	*ft_copylst(t_int *topa)
+static int	*ft_copylst(t_int *topa, int size)
 {
-	t_int	*copy;
+	int		*copy;
+	int		*p;
 	t_int	*tmp;
 
 	tmp = topa;
-	copy = ft_lstnewint(tmp->digit);
-	tmp = tmp->next;
+	copy = (int *)malloc(sizeof(int) * size);
+	if (!copy)
+		return (NULL);
+	p = copy;
 	while (tmp)
 	{
-		ft_lstadd_back(copy, ft_lstnewint(tmp->digit));
+		*p = tmp->digit;
+		++p;
 		tmp = tmp->next;
 	}
-	ft_quicksort(copy, ft_lstlast(copy));
 	return (copy);
 }
 
-static void	ft_solve(t_int **topa, t_int **topb, int size)
+void	ft_qs(t_int **topa, t_int **topb, int size)
 {
-	int	top_half;
-	int	median;
+	int	*copy;
 
-	if (size == 1)
-		return ;
-	top_half = 0;
-	median = ft_median()
-}
-
-t_int	*ft_qs(t_int *topa, t_int **topb, int size)
-{
-	t_int	*copy;
-	t_int	*tmp;
-
-	copy = ft_copylst(topa);
+	copy = ft_copylst(*topa, size);
+	ft_quicksort(copy, 0, size - 1);
+	ft_sort100(topa, topb, copy, size);
+	ft_rra(topa);
 }
