@@ -3,14 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort100.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/24 15:14:34 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/24 21:04:38 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void	ft_selb(t_int **topa, t_int **topb)
+{
+	t_int	*tmp;
+	t_int	*max;
+	t_int	*r;
+
+	tmp = *topa;
+	while (ft_lstsize(*topa) > 0 && !ft_sorted(*topa))
+	{
+		max = tmp;
+		r = tmp->next;
+		while (r)
+		{
+			if (max->digit < r->digit)
+				max = r;
+			r = r->next;
+		}
+		ft_act_rotateb(topa, max->digit);
+		ft_pusha(topb, topa);
+		tmp = *topa;
+	}
+}
+
+static void	ft_int_tab(int *tab, t_int **topa)
+{
+	tab[0] = (*topa)->digit;
+	tab[1] = (*topa)->next->digit;
+	tab[2] = (*topa)->next->next->digit;
+}
+
+static void	ft_cases_3b(t_int **topa, int *tab)
+{
+	if (tab[0] < tab[1] && tab[0] < tab[2] && tab[2] < tab[1])
+	{
+		ft_swapb(topa);
+		ft_rb(topa);
+	}
+	else if (tab[0] > tab[1] && tab[1] < tab[2] && tab[2] < tab[0])
+	{
+		ft_rb(topa);
+	}
+	else if (tab[0] > tab[1])
+	{
+		ft_swapb(topa);
+		if (tab[1] > tab[2])
+			ft_rrb(topa);
+	}
+	else if (tab[0] > tab[2])
+		ft_rra(topa);
+}
+
+void	ft_sort3b(t_int **topa, int size)
+{
+	int	tab[3];
+
+	if (size == 2 && (*topa)->digit > (*topa)->next->digit)
+		return (ft_swapb(topa));
+	else if (size == 2)
+		return ;
+	ft_int_tab(tab, topa);
+	ft_cases_3b(topa, tab);
+}
 
 void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
 {
@@ -38,5 +101,7 @@ void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
 	if (top_half == 0)
 		return ;
 	ft_sort100(topa, topb, tab, top_half);
-	ft_pushb(topb, topa);
+//	while (*topb)
+//		ft_pusha(topa, topb);
+	ft_selb(topb, topa);
 }

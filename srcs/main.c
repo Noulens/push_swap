@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/23 18:14:38 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/25 11:35:48 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	ft_v_args(char **v)
 			if (v[i][j] == ' ')
 				sign = 0;
 			++j;
+			if (j > 11)
+				return (0);
 		}
 	}
 	return (1);
@@ -61,8 +63,9 @@ static int	ft_find_duplicate(t_int *top)
 		count = 0;
 		while (temp1 != NULL)
 		{
-			if (temp->digit == temp1->digit
-				|| temp->digit > INT_MAX || temp->digit < INT_MIN)
+			if (temp->digit == temp1->digit)
+				count++;
+			if (temp->digit > INT_MAX || temp->digit < INT_MIN)
 				count++;
 			temp1 = temp1->next;
 		}
@@ -90,7 +93,7 @@ int	main(int argc, char **argv)
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
 			ft_define_sort(&topa, &topb);
-			printf("\n%d\n\n", ft_sorted(topa));
+			//printf("\n%d\n\n", ft_sorted(topa));
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));

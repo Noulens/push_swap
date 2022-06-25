@@ -49,6 +49,7 @@ SRCS		=	ft_isalpha.c\
 				ft_memcmp.c\
 				ft_strnstr.c\
 				ft_atoi.c\
+				ft_atol.c\
 				ft_calloc.c\
 				ft_strdup.c\
 				ft_substr.c\
@@ -88,7 +89,7 @@ NAME		=	libft.a
 HEADERS		=	libft.h
 
 ${NAME}	:	${HEADERS} ${OBJS}
-	@echo "${_BOLD}${_IYELLOW}${_PURPLE}Baking libft archive...${_END}"
+	@echo "${_BOLD}${_PURPLE}Compiling library...${_END}"
 	ar rc ${NAME} ${OBJS}
 	ranlib ${NAME}
 

@@ -2,7 +2,5 @@
 *.gch
 *.o
 *.txt
-build/
 push_swap
-imgui.ini
 *.a

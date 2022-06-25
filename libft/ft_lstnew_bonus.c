@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 19:35:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/15 19:20:05 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/25 11:21:20 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_int	*ft_lstnew(char *content)
 	first = (t_int *)malloc(sizeof(t_int));
 	if (!first)
 		return (NULL);
-	first->digit = ft_atoi(content);
+	first->digit = ft_atol(content);
 	first->next = NULL;
 	return (first);
 }

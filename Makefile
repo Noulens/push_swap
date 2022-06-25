@@ -52,11 +52,12 @@ CFLAGS =	-Wall -Wextra -Werror -g
 all: subsystem $(NAME) # Make all
 
 subsystem: # Make the libft first
+	@echo "${_BOLD}${_IYELLOW}${_PURPLE}Verifying libft status...${_END}"
 	make -C $(LIB_PATH) all
-	@echo "${_BOLD}${_BLUE}Libft archive generated, nothing else to be done here${_END}"
+	@echo "${_BOLD}${_PURPLE}Libft archive generated, nothing else to be done here${_END}"
 
 $(NAME): $(OBJECTS)
-	@echo "${_BOLD}${_BLUE}All object files generated${_END}"
+	@echo "${_BOLD}${_BLUE}push_swap: all object files generated${_END}"
 	$(CC) $(CFLAGS) $(OBJECTS) $(LIB_PATH)libft.a -o $(NAME)
 	$(DONE)
 
@@ -78,4 +79,4 @@ call: all clean # Clean generated object files then clean libft target and objec
 
 .PHONY	: all clean fclean re call help
 
-.SILENT	:
+.SILENT :
