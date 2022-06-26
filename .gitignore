@@ -4,3 +4,6 @@
 *.txt
 push_swap
 *.a
+push_swap_visualizer/
+checker_linux
+*.ini
