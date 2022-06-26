@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/24 21:03:18 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/26 17:21:52 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,5 @@ void	ft_qs(t_int **topa, t_int **topb, int size)
 	copy = ft_copylst(*topa, size);
 	ft_quicksort(copy, 0, size - 1);
 	ft_sort100(topa, topb, copy, size);
-	ft_rra(topa);
+	free(copy);
 }

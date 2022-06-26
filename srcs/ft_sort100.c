@@ -6,20 +6,20 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/24 21:04:38 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/26 17:21:59 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	ft_selb(t_int **topa, t_int **topb)
+void	ft_selectionb(t_int **topa, t_int **topb)
 {
 	t_int	*tmp;
 	t_int	*max;
 	t_int	*r;
 
-	tmp = *topa;
-	while (ft_lstsize(*topa) > 0 && !ft_sorted(*topa))
+	tmp = *topb;
+	while (*topb)
 	{
 		max = tmp;
 		r = tmp->next;
@@ -29,79 +29,122 @@ static void	ft_selb(t_int **topa, t_int **topb)
 				max = r;
 			r = r->next;
 		}
-		ft_act_rotateb(topa, max->digit);
-		ft_pusha(topb, topa);
+		ft_act_rotateb(topb, max->digit);
+		ft_pusha(topa, topb);
+		tmp = *topb;
+	}
+}
+
+void	ft_selectiona(t_int **topa, t_int **topb)
+{
+	t_int	*tmp;
+	t_int	*max;
+	t_int	*r;
+
+	tmp = *topa;
+	while (ft_lstsize(*topa) > 3)
+	{
+		max = tmp;
+		r = tmp->next;
+		while (r)
+		{
+			if (max->digit > r->digit)
+				max = r;
+			r = r->next;
+		}
+		ft_act_rotatea(topa, max->digit);
+		ft_pushb(topb, topa);
 		tmp = *topa;
 	}
+	ft_sort3(topa, 3);
 }
 
-static void	ft_int_tab(int *tab, t_int **topa)
+static int	ft_is_in_tab(int *tab, int low, int high, int target)
 {
-	tab[0] = (*topa)->digit;
-	tab[1] = (*topa)->next->digit;
-	tab[2] = (*topa)->next->next->digit;
+	while (low <= high)
+	{
+		if (tab[low] == target)
+			return (1);
+		low++;
+	}
+	return (0);
 }
-
-static void	ft_cases_3b(t_int **topa, int *tab)
+/*
+static int	ft_shortcut(int *tab, int low, int high, t_int *topa)
 {
-	if (tab[0] < tab[1] && tab[0] < tab[2] && tab[2] < tab[1])
-	{
-		ft_swapb(topa);
-		ft_rb(topa);
-	}
-	else if (tab[0] > tab[1] && tab[1] < tab[2] && tab[2] < tab[0])
-	{
-		ft_rb(topa);
-	}
-	else if (tab[0] > tab[1])
-	{
-		ft_swapb(topa);
-		if (tab[1] > tab[2])
-			ft_rrb(topa);
-	}
-	else if (tab[0] > tab[2])
-		ft_rra(topa);
-}
+	int		i;
+	int		j;
+	int		res;
+	int		res2;
 
-void	ft_sort3b(t_int **topa, int size)
+	i = 1;
+	j = 1;
+	while (!ft_is_in_tab(tab, low, high, topa->digit) && i++)
+		topa = topa->next;
+	res = topa->digit;
+	topa = topa->next;
+	while (topa && !ft_is_in_tab(tab, low, high, topa->digit))
+		topa = topa->next;
+	if (topa == NULL)
+		return (res);
+	res2 = topa->digit;
+	while (topa && j++)
+		topa = topa->next;
+	if (i <= j)
+		return (res);
+	else
+		return (res2);
+}*/
+
+static int	ft_shortcut(int *tab, int low, int high, t_int *topa)
 {
-	int	tab[3];
+	int		i;
+	int		j;
+	int		res;
+	int		res2;
+	t_int	*bottom;
 
-	if (size == 2 && (*topa)->digit > (*topa)->next->digit)
-		return (ft_swapb(topa));
-	else if (size == 2)
-		return ;
-	ft_int_tab(tab, topa);
-	ft_cases_3b(topa, tab);
+	i = 0;
+	j = 0;
+	while (!ft_is_in_tab(tab, low, high, topa->digit))
+	{
+		++i;
+		topa = topa->next;
+	}
+	res = topa->digit;
+	bottom = ft_lstlast(topa);
+	while (bottom != res && !ft_is_in_tab(tab, low, high, bottom->digit))
+	{
+		j++;
+		bottom = bottom->bnext;
+	}
 }
 
 void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
 {
-	int	top_half;
-	int	median;
+	int	pivot;
+	int	low;
 	int	i;
 
-	if (size == 1)
-		return ;
-	top_half = 0;
-	median = ft_median(tab, size - 1);
+	pivot = size / 5;
 	i = 0;
-	while (i < size)
+	low = 0;
+	while (i < 4)
 	{
-		while ((*topa)->digit >= median && *topa)
+		while (ft_min(*topa) < tab[pivot])
 		{
-			ft_pushb(topb, topa);
-			++top_half;
+			while ((*topa)->digit < tab[pivot])
+				ft_pushb(topb, topa);
+			if (ft_min(*topa) < tab[pivot])
+			{
+				ft_act_rotatea(topa, ft_shortcut(tab, low, pivot, *topa));
+				ft_pushb(topb, topa);
+			}
 		}
-		++i;
-		ft_ra(topa);
+		i++;
+		low = pivot;
+		pivot += size / 5;
 	}
-//	ft_pusha_ntimes(topa, topb, top_half);
-//	ft_rev_rotate_ntimes(topa, size - top_half);
-	if (top_half == 0)
-		return ;
-	ft_sort100(topa, topb, tab, top_half);
-//	while (*topb)
-//		ft_pusha(topa, topb);
-	ft_selb(topb, topa);
+	ft_selectiona(topa, topb);
+	ft_selectionb(topa, topb);
 }

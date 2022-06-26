@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:05:08 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/25 11:21:16 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/26 09:52:41 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_int
 {
 	long			digit;
 	struct s_int	*next;
+	struct s_int	*bnext;
 }	t_int;
 
 /* Part 1 */

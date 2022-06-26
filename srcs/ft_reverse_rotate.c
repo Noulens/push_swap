@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 14:43:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/24 11:39:31 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:19:43 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,20 @@ static t_int	*ft_blast(t_int *lst)
 void	ft_rra(t_int **a)
 {
 	t_int	*tmpa;
-	t_int	*blast;
+	t_int	*blast; 
 
 	if (!*a || !a || (*a)->next == NULL)
 	{
 		write(1, "rra\n", 4);
 		return ;
 	}
-	blast = ft_blast((*a)->next);
+	blast = ft_blast(*a);
 	tmpa = *a;
 	*a = blast->next;
 	(*a)->next = tmpa;
 	blast->next = NULL;
+	(*a)->bnext = NULL;
+	tmpa->bnext = *a;
 	write(1, "rra\n", 4);
 }
 
@@ -51,11 +53,13 @@ void	ft_rrb(t_int **b)
 		write(1, "rrb\n", 4);
 		return ;
 	}
-	blast = ft_blast((*b)->next);
+	blast = ft_blast(*b);
 	tmpb = *b;
 	*b = blast->next;
 	(*b)->next = tmpb;
 	blast->next = NULL;
+	(*b)->bnext = NULL;
+	tmpb->bnext = *b;
 	write(1, "rrb\n", 4);
 }
 
@@ -65,25 +69,26 @@ void	ft_rrr(t_int **a, t_int **b)
 	t_int	*blast;
 
 	if ((!*a || !a || (*a)->next == NULL) && (!*b || !b || (*b)->next == NULL))
-	{
-		write(1, "rrr\n", 4);
-		return ;
-	}
+		return((write(1, "rrr\n", 4))) ;
 	if (*a && a && (*a)->next != NULL)
 	{
-		blast = ft_blast((*a)->next);
+		blast = ft_blast(*a);
 		tmp = *a;
 		*a = blast->next;
 		(*a)->next = tmp;
 		blast->next = NULL;
+		(*a)->bnext = NULL;
+		tmp->bnext = *a;
 	}
 	if (*b && b && (*b)->next != NULL)
 	{
-		blast = ft_blast((*b)->next);
+		blast = ft_blast(*b);
 		tmp = *b;
 		*b = blast->next;
 		(*b)->next = tmp;
 		blast->next = NULL;
+		(*b)->bnext = NULL;
+		tmp->bnext = *b;
 	}
 	write(1, "rrr\n", 4);
 }

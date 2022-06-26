@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:23:20 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/24 14:53:09 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/25 20:28:04 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	ft_act_rotatea(t_int **top, int digit);
 void	ft_act_rotateb(t_int **top, int digit);
 void	ft_define_sort(t_int **topa, t_int **topb);
 void	ft_sel(t_int **topa, t_int **topb);
+void	ft_selectiona(t_int **topa, t_int **topb);
+void	ft_selectionb(t_int **topa, t_int **topb);
 void	ft_sort3(t_int **topa, int size);
 void	ft_sort10(t_int **topa, t_int **topb, int size);
 void	ft_qs(t_int **topa, t_int **topb, int size);

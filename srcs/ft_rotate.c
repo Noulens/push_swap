@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:19:15 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/24 11:39:21 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/26 21:45:35 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_ra(t_int **a)
 	last->next = *a;
 	*a = (*a)->next;
 	last->next->next = NULL;
+	(*a)->bnext = NULL;
+	last->next->bnext = last;
 	write(1, "ra\n", 3);
 }
 
@@ -41,32 +43,34 @@ void	ft_rb(t_int **b)
 	last->next = *b;
 	*b = (*b)->next;
 	last->next->next = NULL;
+	(*b)->bnext = NULL;
+	last->next->bnext = last;
 	write(1, "rb\n", 3);
 }
 
 void	ft_rr(t_int **a, t_int **b)
 {
-	t_int	*lasta;
-	t_int	*lastb;
+	t_int	*last;
 
 	if ((!*a || !a || (*a)->next == NULL) && (!*b || !b || (*b)->next == NULL))
-	{
-		write(1, "rr\n", 3);
-		return ;
-	}
+		return (write(1, "rr\n", 3)) ;
 	if (*a && a && (*a)->next != NULL)
 	{
-		lasta = ft_lstlast(*a);
-		lasta->next = *a;
+		last = ft_lstlast(*a);
+		last->next = *a;
 		*a = (*a)->next;
-		lasta->next->next = NULL;
+		last->next->next = NULL;
+		(*a)->bnext = NULL;
+		last->next->bnext = last;
 	}
 	if (*b && b && (*b)->next != NULL)
 	{
-		lastb = ft_lstlast(*b);
-		lastb->next = *b;
+		last = ft_lstlast(*b);
+		last->next = *b;
 		*b = (*b)->next;
-		lastb->next->next = NULL;
+		last->next->next = NULL;
+		(*b)->bnext = NULL;
+		last->next->bnext = last;
 	}
 	write(1, "rr\n", 3);
 }
