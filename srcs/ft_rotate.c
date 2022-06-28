@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:19:15 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/26 21:45:35 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/27 10:15:41 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_rr(t_int **a, t_int **b)
 	t_int	*last;
 
 	if ((!*a || !a || (*a)->next == NULL) && (!*b || !b || (*b)->next == NULL))
-		return (write(1, "rr\n", 3)) ;
+		return (write(1, "rr\n", 3), (void)0) ;
 	if (*a && a && (*a)->next != NULL)
 	{
 		last = ft_lstlast(*a);

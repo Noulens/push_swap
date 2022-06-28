@@ -35,6 +35,7 @@ CFILES	=	./srcs/ft_build_stack.c\
 			./srcs/ft_select_sort.c\
 			./srcs/ft_swap.c\
 			./srcs/ft_utils_a.c\
+			./srcs/ft_utils_b.c\
 			./srcs/ft_sort3.c\
 			./srcs/ft_sort10.c\
 			./srcs/ft_sort100.c\

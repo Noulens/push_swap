@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:23:20 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/25 20:28:04 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/27 10:39:46 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_rrb(t_int **b);
 void	ft_rrr(t_int **a, t_int **b);
 int		ft_sorted(t_int *a);
 void	ft_display(t_int *top);
+void	ft_bdisplay(t_int *top);
 int		ft_max(t_int *top);
 int		ft_min(t_int *top);
 int		ft_median(int *top, int n);

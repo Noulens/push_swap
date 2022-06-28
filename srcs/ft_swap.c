@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 16:19:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/26 22:16:43 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/27 10:16:02 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void	ft_swapb(t_int **b)
 
 void	ft_swapss(t_int **a, t_int **b)
 {
-	t_int	*tmp;
 	int		flaga;
 	int		flagb;
 

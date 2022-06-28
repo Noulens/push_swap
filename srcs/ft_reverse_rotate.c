@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 14:43:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/26 22:19:43 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/27 10:14:55 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_rrr(t_int **a, t_int **b)
 	t_int	*blast;
 
 	if ((!*a || !a || (*a)->next == NULL) && (!*b || !b || (*b)->next == NULL))
-		return((write(1, "rrr\n", 4))) ;
+		return (write(1, "rrr\n", 4), (void)0);
 	if (*a && a && (*a)->next != NULL)
 	{
 		blast = ft_blast(*a);

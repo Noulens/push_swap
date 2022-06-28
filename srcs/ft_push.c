@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:56:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/26 21:51:11 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/27 11:08:26 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ void	ft_pusha(t_int **a, t_int **b)
 		*b = tmp2;
 		(*b)->bnext = NULL;
 		(*a)->next->bnext = *a;
+		if ((*a)->next != NULL)
+			(*a)->next->bnext = *a;
+		else
+			(*a)->bnext = NULL;
 	}
 	write(1, "pa\n", 3);
 }
@@ -43,7 +47,10 @@ void	ft_pushb(t_int **b, t_int **a)
 		*b = *a;
 		*a = tmp2;
 		(*a)->bnext = NULL;
-		(*b)->next->bnext = *b;
+		if ((*b)->next != NULL)
+			(*b)->next->bnext = *b;
+		else
+			(*b)->bnext = NULL;
 	}
 	write(1, "pb\n", 3);
 }

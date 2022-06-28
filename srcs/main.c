@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/26 17:20:41 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/27 10:58:41 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,27 @@ int	main(int argc, char **argv)
 			topa = ft_build_stack(argc - 1, argv + 1);
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
+			/*topb = ft_lstnew("1989");
+			ft_lstadd_back(topb, ft_lstnew("1991"));
+			ft_lstadd_back(topb, ft_lstnew("1993"));
+			ft_display(topa);
+			printf("-\n");
+			ft_display(topb);
+			printf("----\n");
+			//ft_swapa(&topa);
+			//ft_swapb(&topb);
+			//ft_swapb(&topb);
+			//ft_swapss(&topa, &topb);
+			//ft_rr(&topa, &topb);
+			//ft_rrr(&topa, &topb);
+			ft_pusha(&topa, &topb);
+			ft_pushb(&topb, &topa);
+			printf("-\n");
+			ft_bdisplay(topa);
+			printf("-\n");
+			ft_bdisplay(topb);*/
 			ft_define_sort(&topa, &topb);
-			//printf("\n%d\n\n", ft_sorted(topa));
+			printf("\n%d\n\n", ft_sorted(topa));
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));
@@ -105,21 +124,18 @@ int	main(int argc, char **argv)
 
 /*
 			topb = ft_lstnew("1989");
-			ft_pusha(&topa, &topb);
-			display(topa);
+			ft_lstadd_back(topb, ft_lstnew("1991"));
+			ft_display(topa);
 			printf("-\n");
-			display(topb);
+			ft_display(topb);
 			printf("----\n");
-			//ft_swapa(&topa);
-			//ft_swapb(&topb);
-			//ft_swapss(&topa, &topb);
-			//ft_rr(&topa, &topb);
+			ft_swapa(&topa);
+			ft_swapb(&topb);
+			ft_swapb(&topb);
+			ft_swapss(&topa, &topb);
+			ft_rr(&topa, &topb);
 			ft_rrr(&topa, &topb);
-			display(topa);
 			printf("-\n");
-			display(topb);
-			ft_lstclear(topa);
-			ft_lstclear(topb);
-			//printf("\n%d\n\n", ft_sorted(topa));
+			ft_bdisplay(topa);
 */
 		

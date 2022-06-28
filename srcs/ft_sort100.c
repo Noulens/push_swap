@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/26 17:21:59 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/27 12:24:59 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,33 @@ static int	ft_shortcut(int *tab, int low, int high, t_int *topa)
 	int		j;
 	int		res;
 	int		res2;
-	t_int	*bottom;
+	t_int	*btm;
 
-	i = 0;
-	j = 0;
+	i = -1;
+	j = -1;
+	btm = ft_lstlast(topa);
 	while (!ft_is_in_tab(tab, low, high, topa->digit))
 	{
 		++i;
 		topa = topa->next;
 	}
 	res = topa->digit;
-	bottom = ft_lstlast(topa);
-	while (bottom != res && !ft_is_in_tab(tab, low, high, bottom->digit))
+	while (btm->digit != res && !ft_is_in_tab(tab, low, high, btm->digit))
 	{
 		j++;
-		bottom = bottom->bnext;
+		btm = btm->bnext;
+		res2 = btm->digit;
 	}
+	if (res2 != res && j != -1)
+	{
+		if (i <= j)
+			return (res);
+		else
+			return (res2);
+	}
+	else if ()
+		return (res2);
+	return (-1);
 }
 
 void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
