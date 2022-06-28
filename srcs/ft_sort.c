@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_qs.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/26 17:21:52 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/28 15:13:45 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,15 @@ static int	*ft_copylst(t_int *topa, int size)
 	return (copy);
 }
 
-void	ft_qs(t_int **topa, t_int **topb, int size)
+void	ft_sort(t_int **topa, t_int **topb, int size)
 {
 	int	*copy;
 
 	copy = ft_copylst(*topa, size);
 	ft_quicksort(copy, 0, size - 1);
-	ft_sort100(topa, topb, copy, size);
+	if (size <= 100)
+		ft_sort100(topa, topb, copy, size);
+	else
+		ft_sort500(topa,topb,copy, size);
 	free(copy);
 }

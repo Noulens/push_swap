@@ -1,63 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort100.c                                       :+:      :+:    :+:   */
+/*   ft_sort500.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 12:47:37 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:38:25 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	ft_selectionb(t_int **topa, t_int **topb)
-{
-	t_int	*tmp;
-	t_int	*max;
-	t_int	*r;
-
-	tmp = *topb;
-	while (*topb)
-	{
-		max = tmp;
-		r = tmp->next;
-		while (r)
-		{
-			if (max->digit < r->digit)
-				max = r;
-			r = r->next;
-		}
-		ft_act_rotateb(topb, max->digit);
-		ft_pusha(topa, topb);
-		tmp = *topb;
-	}
-}
-
-void	ft_selectiona(t_int **topa, t_int **topb)
-{
-	t_int	*tmp;
-	t_int	*max;
-	t_int	*r;
-
-	tmp = *topa;
-	while (ft_lstsize(*topa) > 3)
-	{
-		max = tmp;
-		r = tmp->next;
-		while (r)
-		{
-			if (max->digit > r->digit)
-				max = r;
-			r = r->next;
-		}
-		ft_act_rotatea(topa, max->digit);
-		ft_pushb(topb, topa);
-		tmp = *topa;
-	}
-	ft_sort3(topa, 3);
-}
 
 static int	ft_is_in_tab(int *tab, int low, int high, int target)
 {
@@ -97,16 +50,16 @@ static int	ft_shortcut(int *tab, int low, int high, t_int *topa)
 	return (-1);
 }
 
-void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
+void	ft_sort500(t_int **topa, t_int **topb, int *tab, int size)
 {
 	int	pivot;
 	int	low;
 	int	i;
 
-	pivot = size / 5;
+	pivot = size / 8;
 	i = 0;
 	low = 0;
-	while (i < 4)
+	while (i < 7)
 	{
 		while (ft_min(*topa) < tab[pivot])
 		{
@@ -120,7 +73,7 @@ void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
 		}
 		i++;
 		low = pivot;
-		pivot += size / 5;
+		pivot += size / 8;
 	}
 	ft_selectiona(topa, topb);
 	ft_selectionb(topa, topb);

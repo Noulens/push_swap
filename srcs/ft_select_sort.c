@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_select_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/24 18:43:43 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/28 15:14:02 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	ft_define_sort(t_int **topa, t_int **topb)
 	else if (size <= 10)
 		ft_sort10(topa, topb, size);
 	else
-		ft_qs(topa, topb, size);
+		ft_sort(topa, topb, size);
 	return ;
 }
 

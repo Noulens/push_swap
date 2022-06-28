@@ -31,6 +31,7 @@ NAME	=	push_swap
 CFILES	=	./srcs/ft_build_stack.c\
 			./srcs/ft_push.c\
 			./srcs/ft_reverse_rotate.c\
+			./srcs/ft_reverse_rotate_silent.c\
 			./srcs/ft_rotate.c\
 			./srcs/ft_select_sort.c\
 			./srcs/ft_swap.c\
@@ -39,7 +40,8 @@ CFILES	=	./srcs/ft_build_stack.c\
 			./srcs/ft_sort3.c\
 			./srcs/ft_sort10.c\
 			./srcs/ft_sort100.c\
-			./srcs/ft_qs.c\
+			./srcs/ft_sort500.c\
+			./srcs/ft_sort.c\
 			./srcs/main.c
 
 OBJECTS = 	$(CFILES:.c=.o)

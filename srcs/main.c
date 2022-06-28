@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/27 10:58:41 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/06/28 13:08:53 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	ft_v_args(char **v)
 	i = 0;
 	while (v[++i])
 	{
-		j = 0;
+		j = -1;
 		sign = 0;
-		while (v[i][j])
+		while (v[i][++j])
 		{
 			if (v[i][j] == '-' && sign == 0)
 			{
-				sign = 1;
+				sign++;
 				if (!ft_isdigit(v[i][j + 1]))
 					return (0);
 			}
@@ -35,9 +35,6 @@ int	ft_v_args(char **v)
 				return (0);
 			if (v[i][j] == ' ')
 				sign = 0;
-			++j;
-			if (j > 11)
-				return (0);
 		}
 	}
 	return (1);
@@ -92,27 +89,7 @@ int	main(int argc, char **argv)
 			topa = ft_build_stack(argc - 1, argv + 1);
 			if (!ft_find_duplicate(topa))
 				ft_error_dup(topa);
-			/*topb = ft_lstnew("1989");
-			ft_lstadd_back(topb, ft_lstnew("1991"));
-			ft_lstadd_back(topb, ft_lstnew("1993"));
-			ft_display(topa);
-			printf("-\n");
-			ft_display(topb);
-			printf("----\n");
-			//ft_swapa(&topa);
-			//ft_swapb(&topb);
-			//ft_swapb(&topb);
-			//ft_swapss(&topa, &topb);
-			//ft_rr(&topa, &topb);
-			//ft_rrr(&topa, &topb);
-			ft_pusha(&topa, &topb);
-			ft_pushb(&topb, &topa);
-			printf("-\n");
-			ft_bdisplay(topa);
-			printf("-\n");
-			ft_bdisplay(topb);*/
 			ft_define_sort(&topa, &topb);
-			printf("\n%d\n\n", ft_sorted(topa));
 		}
 		else
 			write(1, "Error\n", 6 * sizeof(char));
@@ -123,19 +100,25 @@ int	main(int argc, char **argv)
 }
 
 /*
-			topb = ft_lstnew("1989");
-			ft_lstadd_back(topb, ft_lstnew("1991"));
-			ft_display(topa);
-			printf("-\n");
-			ft_display(topb);
-			printf("----\n");
-			ft_swapa(&topa);
-			ft_swapb(&topb);
-			ft_swapb(&topb);
-			ft_swapss(&topa, &topb);
-			ft_rr(&topa, &topb);
-			ft_rrr(&topa, &topb);
-			printf("-\n");
-			ft_bdisplay(topa);
-*/
-		
+			//topb = ft_lstnew("1989");
+			//ft_lstadd_back(topb, ft_lstnew("1991"));
+			//ft_lstadd_back(topb, ft_lstnew("1993"));
+			//ft_display(topa);
+			//printf("-\n");
+			//ft_display(topb);
+			//printf("----\n");
+			//ft_swapa(&topa);
+			//ft_swapb(&topb);
+			//ft_swapb(&topb);
+			//ft_swapss(&topa, &topb);
+			//ft_rr(&topa, &topb);
+			//ft_rrr(&topa, &topb);
+			//ft_pusha(&topa, &topb);
+			//ft_pushb(&topb, &topa);
+			//printf("-\n");
+			//ft_display(topa);
+			//printf("-\n");
+			//ft_display(topb);
+			ft_define_sort(&topa, &topb);
+			//printf("\n%d\n\n", ft_sorted(topa));
+*/	
