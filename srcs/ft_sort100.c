@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort100.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 12:47:37 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:20:47 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,16 +103,16 @@ void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
 	int	low;
 	int	i;
 
-	pivot = size / 5;
+	pivot = size / 4;
 	i = 0;
 	low = 0;
-	while (i < 4)
+	while (i < 3)
 	{
-		while (ft_min(*topa) < tab[pivot])
+		while (ft_min(*topa) <= tab[pivot])
 		{
-			while ((*topa)->digit < tab[pivot])
+			while ((*topa)->digit <= tab[pivot])
 				ft_pushb(topb, topa);
-			if (ft_min(*topa) < tab[pivot])
+			if (ft_min(*topa) <= tab[pivot])
 			{
 				ft_act_rotatea(topa, ft_shortcut(tab, low, pivot, *topa));
 				ft_pushb(topb, topa);
@@ -120,7 +120,7 @@ void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
 		}
 		i++;
 		low = pivot;
-		pivot += size / 5;
+		pivot += size / 4;
 	}
 	ft_selectiona(topa, topb);
 	ft_selectionb(topa, topb);
