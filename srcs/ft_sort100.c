@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/30 17:48:10 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/30 19:49:48 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_selectiona(t_int **topa, t_int **topb)
 		ft_pushb(topb, topa);
 		tmp = *topa;
 	}
-	ft_sort3(topa, 3);
+	ft_sort3(topa, ft_lstsize(*topa));
 }
 
 static int	ft_is_in_tab(int *tab, int low, int high, int target)
