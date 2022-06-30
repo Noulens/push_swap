@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:19:15 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 11:00:36 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/30 18:03:57 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_rb(t_int **b)
 
 	if (!*b || !b || (*b)->next == NULL)
 	{
-		write(1, "ra\n", 3);
+		write(1, "rb\n", 3);
 		return ;
 	}
 	last = ft_lstlast(*b);

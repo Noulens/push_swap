@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 14:43:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 10:59:44 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:58:49 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_srra(t_int **a)
 	blast->next = NULL;
 	(*a)->bnext = NULL;
 	tmpa->bnext = *a;
-	write(1, "rra\n", 4);
 }
 
 void	ft_srrb(t_int **b)

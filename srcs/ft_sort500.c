@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 15:38:25 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/06/30 17:03:04 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	ft_sort500(t_int **topa, t_int **topb, int *tab, int size)
 	int	low;
 	int	i;
 
-	pivot = size / 8;
-	i = 0;
+	pivot = size / 11;
+	i = -1;
 	low = 0;
-	while (i < 7)
+	while (++i < 10)
 	{
 		while (ft_min(*topa) < tab[pivot])
 		{
@@ -71,10 +71,7 @@ void	ft_sort500(t_int **topa, t_int **topb, int *tab, int size)
 				ft_pushb(topb, topa);
 			}
 		}
-		i++;
 		low = pivot;
-		pivot += size / 8;
+		pivot += size / 11;
 	}
-	ft_selectiona(topa, topb);
-	ft_selectionb(topa, topb);
 }
