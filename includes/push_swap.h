@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:23:20 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 15:14:11 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:50:53 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	ft_pushb_ntimes(t_int **topa, t_int **topb, int n);
 void	ft_sort3(t_int **topa, int size);
 void	ft_sort10(t_int **topa, t_int **topb, int size);
 void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size);
-void	ft_sort500(t_int **topa, t_int **topb, int *tab, int size);
+void	ft_sort500(t_int **topa, t_int **topb, int size);
+void	ft_scaling(int *tab, t_int **a, int size);
 
 # define EXIT_FAILURE 1
 # define EXIT_SUCCESS 0

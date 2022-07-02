@@ -33,7 +33,7 @@ CFILES	=	./srcs/ft_build_stack.c\
 			./srcs/ft_reverse_rotate.c\
 			./srcs/ft_reverse_rotate_silent.c\
 			./srcs/ft_rotate.c\
-			./srcs/ft_select_sort.c\
+			./srcs/ft_define_sort.c\
 			./srcs/ft_swap.c\
 			./srcs/ft_utils_a.c\
 			./srcs/ft_utils_b.c\

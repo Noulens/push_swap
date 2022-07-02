@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 10:55:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/30 19:49:48 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:35:10 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,6 @@ void	ft_sort100(t_int **topa, t_int **topb, int *tab, int size)
 		low = pivot;
 		pivot += size / 5;
 	}
+	ft_selectiona(topa, topb);
+	ft_selectionb(topa, topb);
 }
