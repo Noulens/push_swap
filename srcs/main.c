@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 16:46:53 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/07/02 17:26:20 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:17:15 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_v_args(char **v)
 
 static void	ft_error_dup(t_int *top)
 {
-	write(1, "Error\n", 6);
+	ft_printf("\033[0;31mError\n\033[0m");
 	ft_lstclear(top);
 	exit(EXIT_FAILURE);
 }
@@ -92,7 +92,7 @@ int	main(int argc, char **argv)
 			ft_define_sort(&topa, &topb);
 		}
 		else
-			write(1, "Error\n", 6 * sizeof(char));
+			ft_printf("\033[0;31mError\n\033[0m");
 	}
 	ft_lstclear(topa);
 	ft_lstclear(topb);

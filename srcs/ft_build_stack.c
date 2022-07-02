@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 11:57:32 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 14:24:25 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/02 19:17:37 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_int	*ft_build_stack(int nbdigit, char **nb_arg)
 	if (!ft_checkint(t))
 	{
 		ft_free_splt(t);
-		write(1, "Error\n", 6);
+		ft_printf("\033[0;31mError\n\033[0m");
 		exit(EXIT_FAILURE);
 	}
 	i = 0;
