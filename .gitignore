@@ -9,3 +9,4 @@ checker
 *.ini
 *.log
 visualizer
+checker_linux
