@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:26:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/07/02 19:07:51 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/03 18:02:48 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	ft_sort(t_int **topa, t_int **topb, int size)
 	int	*copy;
 
 	copy = ft_copylst(*topa, size);
+	if (copy == NULL)
+		return ;
 	ft_quicksort(copy, 0, size - 1);
 	if (size <= 100)
 		ft_sort100(topa, topb, copy, size);

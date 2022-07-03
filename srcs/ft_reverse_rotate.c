@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 14:43:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 11:26:48 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/03 17:20:21 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_rra(t_int **a)
 
 	if (!*a || !a || (*a)->next == NULL)
 	{
-		write(1, "rra\n", 4);
+		ft_printf("rra\n");
 		return ;
 	}
 	blast = ft_blast(*a);
@@ -40,7 +40,7 @@ void	ft_rra(t_int **a)
 	blast->next = NULL;
 	(*a)->bnext = NULL;
 	tmpa->bnext = *a;
-	write(1, "rra\n", 4);
+	ft_printf("rra\n");
 }
 
 void	ft_rrb(t_int **b)
@@ -50,7 +50,7 @@ void	ft_rrb(t_int **b)
 
 	if (!*b || !b || (*b)->next == NULL)
 	{
-		write(1, "rrb\n", 4);
+		ft_printf("rrb\n");
 		return ;
 	}
 	blast = ft_blast(*b);
@@ -60,20 +60,20 @@ void	ft_rrb(t_int **b)
 	blast->next = NULL;
 	(*b)->bnext = NULL;
 	tmpb->bnext = *b;
-	write(1, "rrb\n", 4);
+	ft_printf("rrb\n");
 }
 
 void	ft_rrr(t_int **a, t_int **b)
 {
 	if ((!*a || !a || (*a)->next == NULL) && (!*b || !b || (*b)->next == NULL))
-		return (write(1, "rrr\n", 4), (void)0);
+		return (ft_printf("rrr\n"), (void)0);
 	ft_srra(a);
 	ft_srrb(b);
-	write(1, "rrr\n", 4);
+	ft_printf("rrr\n");
 }
 
 void	ft_rev_rotate_ntimes(t_int **top, int n)
 {
 	while (n-- > 0)
-		ft_rra(top);
+		ft_rrb(top);
 }

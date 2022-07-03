@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:19:15 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/30 18:03:57 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/03 17:19:41 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_ra(t_int **a)
 
 	if (!*a || !a || (*a)->next == NULL)
 	{
-		write(1, "ra\n", 3);
+		ft_printf("ra\n");
 		return ;
 	}
 	last = ft_lstlast(*a);
@@ -27,7 +27,7 @@ void	ft_ra(t_int **a)
 	last->next->next = NULL;
 	(*a)->bnext = NULL;
 	last->next->bnext = last;
-	write(1, "ra\n", 3);
+	ft_printf("ra\n");
 }
 
 void	ft_rb(t_int **b)
@@ -36,7 +36,7 @@ void	ft_rb(t_int **b)
 
 	if (!*b || !b || (*b)->next == NULL)
 	{
-		write(1, "rb\n", 3);
+		ft_printf("rb\n");
 		return ;
 	}
 	last = ft_lstlast(*b);
@@ -45,7 +45,7 @@ void	ft_rb(t_int **b)
 	last->next->next = NULL;
 	(*b)->bnext = NULL;
 	last->next->bnext = last;
-	write(1, "rb\n", 3);
+	ft_printf("rb\n");
 }
 
 void	ft_rr(t_int **a, t_int **b)
@@ -53,7 +53,7 @@ void	ft_rr(t_int **a, t_int **b)
 	t_int	*last;
 
 	if ((!*a || !a || (*a)->next == NULL) && (!*b || !b || (*b)->next == NULL))
-		return (write(1, "rr\n", 3), ((void)0));
+		return (ft_printf("rr\n"), ((void)0));
 	if (*a && a && (*a)->next != NULL)
 	{
 		last = ft_lstlast(*a);
@@ -72,7 +72,7 @@ void	ft_rr(t_int **a, t_int **b)
 		(*b)->bnext = NULL;
 		last->next->bnext = last;
 	}
-	write(1, "rr\n", 3);
+	ft_printf("rr\n");
 }
 
 void	ft_rotate_ntimes(t_int **top, int n)

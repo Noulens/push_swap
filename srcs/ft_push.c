@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 14:56:16 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/06/28 12:08:11 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/07/03 12:02:54 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_pusha(t_int **a, t_int **b)
 		else
 			(*a)->bnext = NULL;
 	}
-	write(1, "pa\n", 3);
+	ft_printf("pa\n");
 }
 
 void	ft_pushb(t_int **b, t_int **a)
@@ -54,7 +54,7 @@ void	ft_pushb(t_int **b, t_int **a)
 		else
 			(*b)->bnext = NULL;
 	}
-	write(1, "pb\n", 3);
+	ft_printf("pb\n", 3);
 }
 
 void	ft_pusha_ntimes(t_int **topa, t_int **topb, int n)
